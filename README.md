@@ -2,21 +2,36 @@
 
 ## Question answers
 1. How do you delete all output from a `snakemake` work flow?  
+
 ```shell
-snakemake --cores 1 --delete-all-output
+snakemake --delete-all-output
 ```  
+
 2. How do you delete output from a single `snakemake` rule?  
+
 I have no clue, and an hour of searching the docs + google has not shed any light on this.
 The closest I can get is:
 ```shell
 snakemake some_target --delete-all-output
 ```
-But the problem with this is that is also deletes all the outputs in all the rules leading up to the target rule.  
+But the problem is that this also deletes outputs in the rules leading up to the target rule.   
+
+If you're looking to automatically delete files as part of the pipeline, you can flag certain output files as temporary in the rule itself.  
+```
+input:
+    temp("input.txt")
+```  
+
 3. What is the citation for `snakemake`?  
-Köster, Johannes and Rahmann, Sven. “Snakemake - A scalable bioinformatics workflow engine”. Bioinformatics 2012.
+
+Köster, Johannes and Rahmann, Sven. “Snakemake - A scalable bioinformatics workflow engine”. Bioinformatics 2012.  
+
 4. Display `mtcars.png`  
-![mtcars.png](https://github.com/Aerin13/AdvancedInformaticsWeek4/blob/main/mtcars.png?raw=true)
+
+![mtcars.png](https://github.com/Aerin13/AdvancedInformaticsWeek4/blob/main/mtcars.png?raw=true)  
+
 5. Provide evidence that `touch`ing the various files does the right thing.  
+
 `touch`ing the sqlite3 database:  
 ```
 Building DAG of jobs...
