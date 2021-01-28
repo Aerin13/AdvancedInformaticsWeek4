@@ -18,8 +18,8 @@ But the problem is that this also deletes outputs in the rules leading up to the
 
 If you're looking to automatically delete files as part of the pipeline, you can flag certain output files as temporary in the rule itself.  
 ```
-input:
-    temp("input.txt")
+output:
+    temp("output.txt")
 ```  
 
 3. What is the citation for `snakemake`?  
